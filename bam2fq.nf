@@ -50,12 +50,14 @@ process two{
 	echo true
 
 	input:
-	set key, x, y from out_ch
-	
+	set key, x, y, config from out_ch.combine(config_file)
+
 	script:
 	"""
 	echo "key value =" ${key}
 	echo "x value =" ${x}
 	echo "y value= =" ${y}
+	echo "config =" ${config}
 	"""
 }
+

@@ -12,34 +12,6 @@ params.timming = null
 params.adapters = null
 
 
-// CONFIG FILE DURING DEV
-
-/*
-=================================================================================
-  process {
-  beforeScript = 'module load singularity'
-  container = 'file:///data/bdigby/grch38/work/singularity/barryd237-circrna.img'
-  containerOptions = '-B /data/'
-  executor='slurm'
-  queue='MSC'
-  clusterOptions = '-n 1 -N 1'
-  withLabel: 'multiqc' {
-	   container = 'barryd237/week1:test'
-	  }
-  }
-
-  singularity.enabled = true
-  singularity.autoMounts = true
-
-  singularity {
-	cacheDir = '/data/MSc/2020/MA5112/container_cache'
-  }
-=================================================================================
-*/
-
-
-// CALL
-
 /*
 =================================================================================
 nextflow -bg -q run QC_dev_barry.nf --outdir "./" \
@@ -83,12 +55,10 @@ if(params.input_type == 'bam'){
 }
 
 
-
-// stage three channels with raw reads
+// stage three channels with raw reads:
 (fastqc_reads, trimming_reads, raw_reads) = fastq_built.into(3)
 
 // FASTQC on raw data. Mandatory.
-
 
 
 process FastQC {
@@ -108,9 +78,7 @@ process FastQC {
 }
 
 
-
 // Set up Trimming logic 
-
 
 
 if(params.trimming == true){
@@ -142,7 +110,7 @@ if(params.trimming == true){
         """
         }
 
-        // trimmed reads into 2 channels
+        // trimmed reads into 2 channels:
         (fastqc_trim_reads, aligner_reads) = trim_reads_ch.into(2)
 
         process FastQC_trim {
@@ -184,7 +152,7 @@ if(params.trimming == true){
 }
 
 
-// Stage Alignment Reads (trivial naming)
+// Stage Alignment Reads (trivial naming):
 (bwa_reads, STAR_reads, hisat2_reads) = aligner_reads.into(3)
 
 

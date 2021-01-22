@@ -12,36 +12,41 @@ params.timming = null
 params.adapters = null
 
 
-// CONFIG FILE DURING DEV:
+// CONFIG FILE DURING DEV
 
 /*
-process {
-beforeScript = 'module load singularity'
-container = 'file:///data/bdigby/grch38/work/singularity/barryd237-circrna.img'
-containerOptions = '-B /data/'
-executor='slurm'
-queue='MSC'
-clusterOptions = '-n 1 -N 1'
-withLabel: 'multiqc' {
-	 container = 'barryd237/week1:test'
-	}
-}
+=================================================================================
+  process {
+  beforeScript = 'module load singularity'
+  container = 'file:///data/bdigby/grch38/work/singularity/barryd237-circrna.img'
+  containerOptions = '-B /data/'
+  executor='slurm'
+  queue='MSC'
+  clusterOptions = '-n 1 -N 1'
+  withLabel: 'multiqc' {
+	   container = 'barryd237/week1:test'
+	  }
+  }
 
-singularity.enabled = true
-singularity.autoMounts = true
+  singularity.enabled = true
+  singularity.autoMounts = true
 
-singularity {
+  singularity {
 	cacheDir = '/data/MSc/2020/MA5112/container_cache'
-}
+  }
+=================================================================================
 */
 
 
-// CALL:
+// CALL
+
 /*
+=================================================================================
 nextflow -bg -q run QC_dev_barry.nf --outdir "./" \
 --input "raw_data/" --input_glob "*_r{1,2}.fastq.gz" \
 --input_type "fastq" --adapters "/data/MSc/2020/MA5112/week_1/assets/adapters.fa" \
 --trimming "true"
+=================================================================================
 /*
 
 

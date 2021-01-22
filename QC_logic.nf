@@ -11,14 +11,13 @@ params.outdir = null
 params.timming = null
 params.adapters = null
 
-
 /*
-=================================================================================
-nextflow -bg -q run QC_dev_barry.nf --outdir "./" \
---input "raw_data/" --input_glob "*_r{1,2}.fastq.gz" \
---input_type "fastq" --adapters "/data/MSc/2020/MA5112/week_1/assets/adapters.fa" \
---trimming "true"
-=================================================================================
+========================================================================
+// nextflow -bg -q run QC_dev_barry.nf --outdir "./" --input "raw_data/" \
+// --input_glob "*_r{1,2}.fastq.gz" --input_type "fastq" \
+// --adapters "/data/MSc/2020/MA5112/week_1/assets/adapters.fa" \
+// --trimming "true"
+========================================================================
 /*
 
 

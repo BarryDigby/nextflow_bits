@@ -113,6 +113,11 @@ if(params.star_index){
 ================================================================================
 */
 
+// Check file extension
+def has_extension(it, extension) {
+    it.toString().toLowerCase().endsWith(extension.toLowerCase())
+}
+
 // Define STAR index files
 def defineStarFiles() {
     return [
@@ -134,3 +139,5 @@ def defineStarFiles() {
     'transcriptInfo.tab'
     ]
 }
+
+

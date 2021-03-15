@@ -10,7 +10,7 @@
 
 // Check Fasta fai 
 if(params.fasta_fai && !params.fasta_fai.endsWith(".fai")){
-  exit 1, "Fasta index file provided (${params.fasta_fai}) is not valid, Fasta index files should have the extension '.fai'."
+  exit 1, "[nf-core/circrna] error: Fasta index file provided (${params.fasta_fai}) is not valid, Fasta index files should have the extension '.fai'."
 }
 
 // Check BWA index

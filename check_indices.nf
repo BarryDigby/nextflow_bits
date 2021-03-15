@@ -31,10 +31,6 @@ if(params.bwa_index){
 
 // Check Bowtie index
 
-/*
- * --bowtie_index includes glob pattern, can check if extensions are correct
- */
-
 if(params.bowtie_index){
   
   bowtie_path_files = params.bowtie_index + "/*"

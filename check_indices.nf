@@ -86,9 +86,6 @@ if(params.hisat2_index){
 
 // Check STAR index
 
-println(params.module)
-
-
 if(params.star_index){
 
   starList = defineStarFiles()
